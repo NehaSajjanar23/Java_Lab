@@ -1,0 +1,61 @@
+class Gen<T>{
+    T ob;
+    Gen(T o){
+        ob = o;
+    }
+    T getob(){
+        return ob;
+    }
+    void showtype(){
+        System.out.println("The type of T is "+ob.getClass().getName());
+    }
+}
+
+class TwoGen<T,V>{
+    T ob1;
+    V ob2;
+    TwoGen(T t , V v){
+        ob1=t;
+        ob2=v;
+    }
+    T getob1(){
+        return ob1;
+    }
+    V getob2(){
+        return ob2;
+    }
+    void showtype1(){
+        System.out.println("the type of the object1 is :"+ob1.getClass().getName());
+    }
+    void showtype2(){
+        System.out.println("the type of the object2 is :"+ob2.getClass().getName());
+    }
+}
+
+class getgendemo{
+    public static void main(String args[]){
+        System.out.println("generics with one parameter.");
+        Gen<Integer> iob1;
+        iob1=new Gen<Integer>(88);
+        iob1.showtype();
+        int v=iob1.getob();
+        System.out.println("the auto unboxed value of v is :"+v);
+
+        Gen<Double> dob1;
+        dob1=new Gen<Double>(3.14);
+        dob1.showtype();
+        double d=dob1.getob();
+        System.out.println("the auto unboxed value of d is :"+d);
+
+        System.out.println("genericss with two parameters.");
+        TwoGen<Integer,Double> tgobj;
+        tgobj=new TwoGen<Integer, Double>(9,1.25);
+        tgobj.showtype1();
+        tgobj.showtype2();
+        int iob2=tgobj.getob1();
+        System.out.println("the value of object1 is :"+iob2);
+        double dob2=tgobj.getob2();
+        System.out.println("the value of the object2 is :"+dob2);
+
+    }
+}
