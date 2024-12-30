@@ -1,0 +1,58 @@
+class Student{
+   Scanner sc=new Scanner(System.in);
+   String name, usn;
+   int marks[]=new int[3];
+   int credit[]=new int[3];
+   void stdinfo(){
+       name=sc.next();
+       usn=sc.next();
+       for (int i=0;i<3;i++){
+           marks[i]=sc.nextInt();
+           credit[i]=sc.nextInt();
+        }
+   }
+   void printinfo(){
+       System.out.println("name of the student is "+name);
+       System.out.println("usn :"+usn);
+       for (int i=0;i<3;i++){
+           System.out.println(i+")marks"+" "+marks[i]+" "+"credit "+credit[i]);
+       }
+    }
+   int sgpa(){
+       int sum=0;
+       int cred=0;
+       for (int i=0;i<3;i++){
+           if (marks[i]>=90)
+                 sum=sum+(10*credit[i]);
+           }
+           else if (marks[i]<90 && marks[i]>=80)
+                 sum=sum+(9*credit[i]);
+           }
+           else if (marks[i]<80 && marks[i]>=70)
+                 sum=sum+(8*credit[i]);
+           }
+           else if (marks[i]<70 && marks[i]>=60)
+                 sum=sum+(7*credit[i]);
+           }
+           else if (marks[i]<60 && marks[i]>=50)
+                 sum=sum+(6*credit[i]);
+           }
+           else if (marks[i]<50 && marks[i]>=40)
+                 sum=sum+(5*credit[i]);
+           }
+           else{
+                 sum=sum+0;
+           }
+           int sgp=sum/(cred);
+       return sgp;
+       }
+}
+class display{
+    public static void main(String [] args){
+        student s1=new student();
+        student s2=new student();
+        s1.stdinfo();
+        int sgh=s1.sgpa();l
+        System.out.println("the sgpa of the student is :"+sgh);
+    }
+}
